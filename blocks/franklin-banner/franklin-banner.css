@@ -1,0 +1,12 @@
+.franklin-banner-container{
+    background-color: blue;
+}
+.banner-content{
+    position: relative;
+}
+.banner-content .text-wrap .title{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
