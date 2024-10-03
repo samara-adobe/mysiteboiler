@@ -255,3 +255,34 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+ /* Black triangle */
+/* .assignment2-container .button .icon::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    vertical-align: middle;
+    border-bottom: 20px solid #000;
+    margin-right: 8px;
+  } */
+  
+  /* .assignment2-container button {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.assignment2-container button:hover {
+    background-color: #ddd;
+} */
+
+.assignment2-container .icon{
+    transform: translateY(20%);
+  }

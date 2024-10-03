@@ -1,0 +1,84 @@
+/* table.css - EDS standards with pagination */
+
+/* Table styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .table td {
+    color: #555;
+  }
+  .table tr {
+    background-color: aliceblue;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tr:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+  }
+  
+  /* Pagination controls */
+  .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0073e6;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination-controls span {
+    font-size: 16px;
+  }
+  
+  /* Responsive styling */
+  @media screen and (max-width: 768px) {
+    .table th, 
+    .table td {
+      font-size: 14px;
+    }
+  
+    .pagination-controls button {
+      font-size: 12px;
+      padding: 8px 16px;
+    }
+  
+    .pagination-controls span {
+      font-size: 14px;
+    }
+  }
+  

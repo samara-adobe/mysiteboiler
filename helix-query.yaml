@@ -1,0 +1,10 @@
+version: 1
+query:
+  path:
+    type: string
+  title:
+    type: string
+  description:
+    type: string
+  image:
+    type: string
