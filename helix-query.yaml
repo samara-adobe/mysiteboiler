@@ -23,6 +23,14 @@ indices:
         select: head > meta[property="og:image"]
         value: |
           attribute(el, 'content')
+      blocks:
+        select: none
+        value: |
+          headers['blocks']
+      pagetitle:
+        selectFirst: h1
+        value: |
+          textContent(el)
       
 
       
