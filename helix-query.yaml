@@ -1,10 +1,18 @@
 version: 1
-query:
-  path:
-    type: string
-  title:
-    type: string
-  description:
-    type: string
-  image:
-    type: string
+indices:
+  site:
+    include:
+      - '**'
+    exclude:
+      - '/cms/**'
+    target: /query-index
+    properties:
+      author:
+        select: head > meta[name="author"]
+        value: |
+          attribute(el, 'content')
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      
