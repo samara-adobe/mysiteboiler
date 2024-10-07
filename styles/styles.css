@@ -12,10 +12,10 @@
 
 :root {
   /* colors */
-  --background-color: cyan;
+  --background-color: #ffff;
   --light-color: #f8f8f8;
   --dark-color: #505050;
-  --text-color: magenta;
+  --text-color: #000;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
 
@@ -141,7 +141,10 @@ pre {
   overflow-x: auto;
   white-space: pre;
 }
-
+main{
+        position: relative;
+        top: 80px;
+}
 main > div {
   margin: 40px 16px;
 }
@@ -173,7 +176,7 @@ button {
   max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
+  /* border-radius: 2.4em; */
   padding: 0.5em 1.2em;
   font-family: var(--body-font-family);
   font-style: normal;
@@ -232,21 +235,21 @@ main > .section {
   margin: 40px 0;
 }
 
-main > .section > div {
+/* main > .section > div {
   max-width: 1200px;
   margin: auto;
   padding: 0 24px;
-}
+} */
 
 main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
+/* @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
   }
-}
+} */
 
 /* section metadata */
 main .section.light,
@@ -256,33 +259,156 @@ main .section.highlight {
   padding: 40px 0;
 }
 
- /* Black triangle */
-/* .assignment2-container .button .icon::before {
-    content: '';
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    vertical-align: middle;
-    border-bottom: 20px solid #000;
-    margin-right: 8px;
-  } */
-  
-  /* .assignment2-container button {
-    padding: 10px 20px;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.assignment2-container button:hover {
-    background-color: #ddd;
-} */
-
 .assignment2-container .icon{
     transform: translateY(20%);
   }
+.layout-container-fixed{
+    max-width: 1160px;
+    margin: 0  auto;
+}
+
+/* home page */
+main > .section:nth-child(2){
+    margin-top: 0;
+}
+main > .section:nth-child(2) > div{
+    max-width: 1200px;
+    margin: 0  auto;
+}
+main > .section:nth-child(3) > div{
+    max-width: 1200px;
+    margin: 0  auto;
+}
+.section:nth-child(3) > div > h2{
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+}
+.section:nth-child(3) > div > h2::after{
+    border-bottom: 2px solid var(--brandPrimary, #ffea00);
+    content: "";
+    display: block;
+    padding-top: 8px;
+    width: 84px;
+}
+.section:nth-child(3) > div:nth-child(3) > p > .button{
+    background-color: var(--brandPrimary, #ffea00);
+    border-radius: var(--buttonBorderRadius, 0);
+    color: #202020;
+    font-size: var(--fontSizeSmall, 14px);
+    font-weight: var(--fontWeightBold, 600);
+    height: var(--buttonSize, 3pc);
+    min-width: var(--buttonSize, 3pc);
+    text-transform: uppercase;
+}
+main >.section:nth-child(4){
+    border-style: solid;
+    border-width: 1px;
+    color: #ebebeb;
+    max-width: 1200px;
+    margin: 4rem auto;
+}
+main > .section:nth-child(5) > div.default-content-wrapper{
+    max-width: 1200px;
+    margin: 0  auto;
+}
+.section:nth-child(5) > div.default-content-wrapper > h2{
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+}
+.section:nth-child(5) > div.default-content-wrapper > h2::after{
+    border-bottom: 2px solid var(--brandPrimary, #ffea00);
+    content: "";
+    display: block;
+    padding-top: 8px;
+    width: 84px;
+}
+
+main > .section:nth-child(6) > div{
+    max-width: 1200px;
+    margin: 0  auto;
+}
+
+main > .section:nth-child(6) > div.default-content-wrapper > h3{
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+    font-size: var(--fontSizeH3, 24px);
+}
+.section:nth-child(6) > div:nth-child(3) > p > .button{
+    background-color: var(--brandPrimary, #ffea00);
+    border-radius: var(--buttonBorderRadius, 0);
+    color: #202020;
+    font-size: var(--fontSizeSmall, 14px);
+    font-weight: var(--fontWeightBold, 600);
+    height: var(--buttonSize, 3pc);
+    min-width: var(--buttonSize, 3pc);
+    text-transform: uppercase;
+}
+main >.section:nth-child(7){
+    border-style: solid;
+    border-width: 1px;
+    color: #ebebeb;
+    max-width: 1200px;
+    margin: 4rem auto;
+}
+.footer-wrapper{
+    background-color: #202020;
+    color: #ebebeb;
+    margin-top: 8rem;
+    padding: 1rem 0 1.5rem;
+    clear: none;
+    float: left;
+    width: 100%;
+}
+
+/* magazine page */
+main > .section:nth-child(1) > .default-content-wrapper{
+    max-width: 1200px;
+    margin: 0  auto;
+}
+main > .section:nth-child(1) > .default-content-wrapper > h1{
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+    font-size: var(--fontSizeH1, 40px);
+}
+main > .section:nth-child(1) > .columns-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.magazine-main .section:nth-child(2) > .default-content-wrapper:nth-child(1) > h2 {
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+}
+.magazine-main .section:nth-child(2) > .default-content-wrapper:nth-child(1) > h2::after {
+    border-bottom: 2px solid var(--brandPrimary, #ffea00);
+    content: "";
+    display: block;
+    padding-top: 8px;
+    width: 84px;
+}
+.magazine-main .section:nth-child(3) > .default-content-wrapper:nth-child(1) > h2 {
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+}
+.magazine-main .section:nth-child(3) > .default-content-wrapper:nth-child(1) > h2::after {
+    border-bottom: 2px solid var(--brandPrimary, #ffea00);
+    content: "";
+    display: block;
+    padding-top: 8px;
+    width: 84px;
+}
+.magazine-main .section:nth-child(5) > .cards-wrapper{
+    max-width: 1200px;
+    margin: 0  auto;
+}

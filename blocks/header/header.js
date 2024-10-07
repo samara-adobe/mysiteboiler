@@ -163,4 +163,23 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // Select the <p> tag inside the search-wrapper
+  const searchWrapper = document.querySelector('.search-wrapper p');
+
+  // Check if the searchWrapper exists to avoid errors
+  if (searchWrapper) {
+    // Add the 'search-box' class to the <p> tag
+    searchWrapper.classList.add('search-box');
+    
+    // Create an input element
+    const searchInput = document.createElement('input');
+    
+    // Add class 'search-input' and set placeholder
+    searchInput.classList.add('search-input');
+    searchInput.setAttribute('placeholder', 'Search...');
+    
+    // Append the input to the search-box <p> tag
+    searchWrapper.appendChild(searchInput);
+  }
 }

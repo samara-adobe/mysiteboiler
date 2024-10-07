@@ -31,3 +31,56 @@
     order: unset;
   }
 }
+
+
+@media (width >= 900px) {
+    .columns.typ-magazine > div {
+        gap:unset;
+    }
+    .columns.typ-magazine > div > div:first-child {
+        min-width: 60%;
+    }
+    .columns.typ-magazine > div > div:nth-child(2) {
+        /* max-width: 40%; */
+        padding: 63px 36px 36px;
+        background-color: #ebebeb;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+    .magazine-image-container img{
+        min-height: 500px;
+    }
+    .magazine-wrapper .magazine-heading.heading-1{
+
+        font-size: 18px;
+        line-height: 2.5;
+        text-align: justify;
+        font-weight: 700;
+        margin: 0 0 13.5px;
+    }
+    .magazine-wrapper .magazine-heading.heading-2{
+        font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    margin: .5em 0;
+    font-weight: var(--fontWeightNormal, normal);
+    }
+    .magazine-wrapper .magazine-paragraph.paragraph-1{
+        line-height: 1.75;
+        margin: 0;
+        font-size: var(--fontSizeSmall, 14px);
+    }
+    .magazine-wrapper.magazine-paragraph.paragraph-2{
+        float: left;
+        margin: 1em 0;
+    }
+    .magazine-wrapper.magazine-paragraph.paragraph-2 .buttton{
+        background-color: var(--brandPrimary, #ffea00);
+        border-radius: var(--buttonBorderRadius, 0);
+        color: var(--textColor, #202020);
+        float: left;
+        font-size: var(--fontSizeSmall, 14px);
+        font-weight: var(--fontWeightBold, 600);
+        padding: 1em 2.5em;
+        text-transform: uppercase;
+    }
+}

@@ -34,9 +34,10 @@ header nav[aria-expanded='true'] {
   header nav {
     display: flex;
     justify-content: space-between;
-    gap: 0 32px;
+    gap: 0 40px;
     max-width: 1264px;
     padding: 0 32px;
+    margin: 40px auto;
   }
 
   header nav[aria-expanded='true'] {
@@ -222,6 +223,8 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     gap: 24px;
     margin: 0;
+    float: right;
+    text-transform: uppercase;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
@@ -266,3 +269,37 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+.search-container p {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Adjust this width as needed */
+    margin: 0 auto;
+  }
+
+  .search-container .icon-search {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Adjust for padding around the icon */
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container .search-input {
+    width: 65%;
+    padding: 10px 10px 10px 40px;
+    border: unset;
+    font-size: 16px;
+    background: #f0f0f0;
+  }
+  
+  .search-container .search-input:focus {
+    outline: none;
+    border-color: #0072ce; /* Add focus color */
+  } 
+  
+  .search-container .icon-search img {
+    width: 20px; /* Icon size */
+    height: 20px;
+  }
