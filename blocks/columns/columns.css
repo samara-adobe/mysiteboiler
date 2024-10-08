@@ -42,7 +42,7 @@
     }
     .columns.typ-magazine > div > div:nth-child(2) {
         /* max-width: 40%; */
-        padding: 63px 36px 36px;
+        padding: 48px 36px 36px;
         background-color: #ebebeb;
         display: flex;
         flex: 1;
@@ -69,11 +69,11 @@
         margin: 0;
         font-size: var(--fontSizeSmall, 14px);
     }
-    .magazine-wrapper.magazine-paragraph.paragraph-2{
+    .magazine-wrapper .magazine-paragraph.paragraph-2{
         float: left;
         margin: 1em 0;
     }
-    .magazine-wrapper.magazine-paragraph.paragraph-2 .buttton{
+    .magazine-wrapper .magazine-paragraph.paragraph-2 .button{
         background-color: var(--brandPrimary, #ffea00);
         border-radius: var(--buttonBorderRadius, 0);
         color: var(--textColor, #202020);
