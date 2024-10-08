@@ -205,4 +205,17 @@ export default async function decorate(block) {
     // Append the input to the search-box <p> tag
     searchWrapper.appendChild(searchInput);
   }
+  const nav1 = document.getElementsByClassName('nav-wrapper')[0]; // Get the nav element
+
+  // Function to handle scroll event
+  const handleScroll = () => {
+    if (window.scrollY > 0) { // Check if scrolled down
+      nav1.classList.add('scrolled'); // Add scrolled class
+    } else {
+      nav1.classList.remove('scrolled'); // Remove scrolled class
+    }
+  };
+
+  // Attach the scroll event listener
+  window.addEventListener('scroll', handleScroll);
 }
