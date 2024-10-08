@@ -61,13 +61,27 @@ footer .footer > div > .section > .default-content-wrapper > ul > li{
     display: block;
     float: left;
 }
-footer .footer > div > .section > .default-content-wrapper > ul > li > code{
+footer .footer > div > .section > .default-content-wrapper > ul > li {
     font-size: var(--fontSizeSmall, 14px);
     padding: 15px 17px;
     text-decoration: none;
     text-transform: uppercase;
     color: var(--navLinkInverse, #ebebeb);
+    color: white;
 }
+footer .footer > div > .section > .default-content-wrapper > ul > li > a{
+    color: white;
+}
+footer .footer > div > .section > .default-content-wrapper > ul > li > a.active {
+    color: #fff; /* Active link color */
+    text-decoration: underline;
+  }
+  
+
+
+  
+ 
+
 footer .footer > div > .section > .default-content-wrapper > p:nth-child(2){
     padding: 0 10px;
     /* align-self: end; */

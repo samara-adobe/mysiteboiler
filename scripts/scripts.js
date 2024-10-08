@@ -142,7 +142,7 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
-  // Check if the current URL matches 'http://localhost:3000/magazine'
+  // Check if the current URL matches 'http:/***/magazine'
   if (window.location.pathname.endsWith('/magazine')) {
     // Select the 'main' element and add a class 'magazine-main'
     const mainElement = document.querySelector('main');
@@ -154,6 +154,25 @@ async function loadPage() {
     const firstDivInMain = mainElement.querySelector('div');
     if (firstDivInMain) {
       firstDivInMain.classList.add('magazine-wrapper');
+    }
+  }
+   // Check if the current URL matches 'http:/***/magazine'
+   if (window.location.pathname.endsWith('/about-us')) {
+    // Select the 'main' element and add a class 'magazine-main'
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.classList.add('about-main');
+    }
+
+    // Select the first 'div' inside 'main' and add a class 'magazine-wrapper'
+    const firstDivInMain = mainElement.querySelector('div:nth-child(2)');
+    if (firstDivInMain) {
+      firstDivInMain.classList.add('about-contrb-wrapper');
+    }
+    // Select the first 'div' inside 'main' and add a class 'magazine-wrapper'
+    const secondDivInMain = mainElement.querySelector('div:nth-child(3)');
+    if (secondDivInMain) {
+      secondDivInMain.classList.add('about-guids-wrapper');
     }
   }
 }

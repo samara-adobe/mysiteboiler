@@ -221,17 +221,31 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 24px;
-    margin: 0;
+    /* gap: 24px;
+    margin: 0; */
     float: right;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+    padding: 10px 15px; /* Adds padding around each item */
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    cursor: pointer;
   }
-
+  header nav .nav-sections .default-content-wrapper > ul > li:hover {
+    background-color: #f0f0f0;
+  }
+  .nav-sections .default-content-wrapper > ul > li.active {
+    background-color: var(--brandPrimary, #ffea00);
+  }
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
     position: relative;
@@ -303,3 +317,6 @@ header nav .nav-tools {
     width: 20px; /* Icon size */
     height: 20px;
   }
+ 
+
+  

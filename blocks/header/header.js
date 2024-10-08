@@ -4,6 +4,26 @@ import { loadFragment } from '../fragment/fragment.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
+/**
+ * Highlights the active navigation item based on the current URL
+ * @param {Element} navSections The navigation sections element
+ */
+function highlightActiveNavItem(navSections) {
+  const currentPath = window.location.pathname;
+
+  navSections.querySelectorAll('.default-content-wrapper > ul > li a').forEach((navLink) => {
+    const navItem = navLink.closest('li');
+    const hrefPath = new URL(navLink.href).pathname;
+
+    if (currentPath === hrefPath) {
+      navItem.classList.add('active');
+    } else {
+      navItem.classList.remove('active');
+    }
+  });
+}
+
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -144,6 +164,9 @@ export default async function decorate(block) {
         }
       });
     });
+    
+    // Highlight the active nav item
+    highlightActiveNavItem(navSections);
   }
 
   // hamburger for mobile
