@@ -1,0 +1,55 @@
+.magazine-json-wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.magazine-json .cards{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+    gap: 14px;
+}
+.magazine-json .cards li:nth-child(n+5) {
+    display: none;
+  }
+.magazine-main .magazine-json .cards li:nth-child(n+5) {
+    display: block;
+  }
+.magazine-json .cards li img{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.magazine-json .cards .cards-card-body{
+    margin: 0;
+}
+
+.magazine-json .cards .cards-card-body > .button-container  .button{
+    background-color: unset;
+    padding: 0;
+    color: var(--textColor, #202020);
+    font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
+    font-size: var(--fontSizeMedium, 18px);
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.magazine-json .cards .cards-card-body > .button-container  .button.primary{
+    overflow: unset;
+    text-overflow: unset;
+    white-space: unset;
+}
+
+.magazine-json .cards .cards-card-body > p:nth-child(2){
+    color: dimgray;
+    display: block;
+    font-size: var(--fontSizeSmall, 14px);
+    margin-top: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 260px;
+}

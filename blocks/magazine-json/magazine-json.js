@@ -1,108 +1,117 @@
-export default function decorate(block) {
-  async function fetchAndPopulateCards() {
-    try {
-      // Use a proxy if needed to bypass CORS for local development.
-      // Replace 'YOUR_PROXY_SERVER_URL' with your proxy server address if needed.
-      const response = await fetch('https://main--mysiteboiler--samara-adobe.aem.live/magazines.json', {
-        mode: 'no-cors'});
-  
-      // Check for a successful response
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-  
-      const data = await response.json();
-      populateCards(data);
-    } catch (error) {
-      console.error('Error fetching or populating cards:', error);
-    }
-  }
-  
-  function populateCards(data) {
-    // Ensure data structure is valid
-    const magazines = data?.data || [];
-  
-    const cardsWrapper = document.querySelector('.cards-wrapper');
-    if (!cardsWrapper) {
-      console.warn('Cards wrapper element not found.');
-      return;
-    }
-  
-    // Create the container for the cards
-    const cardsContainer = document.createElement('ul');
-    cardsContainer.classList.add('cards');
-  
-    magazines.forEach((magazine) => {
-      // Destructure magazine properties
-      const { title, description, imageUrl, link } = magazine;
-  
-      // Create card elements
-      const cardElement = document.createElement('li');
-  
-      // Image Section
-      const imageDiv = document.createElement('div');
-      imageDiv.classList.add('cards-card-image');
-  
-      const imageLink = document.createElement('a');
-      imageLink.href = link;
-      imageLink.title = title;
-  
-      const picture = document.createElement('picture');
-      const source = document.createElement('source');
-      source.type = 'image/webp';
-      source.srcset = `${imageUrl}?format=webply&optimize=medium`;
-  
-      const img = document.createElement('img');
-      img.loading = 'lazy';
-      img.alt = title;
-      img.src = `${imageUrl}?format=jpeg&optimize=medium`;
-  
-      picture.appendChild(source);
-      picture.appendChild(img);
-      imageLink.appendChild(picture);
-      imageDiv.appendChild(imageLink);
-  
-      // Body Section
-      const bodyDiv = document.createElement('div');
-      bodyDiv.classList.add('cards-card-body');
-  
-      const buttonContainer = document.createElement('p');
-      buttonContainer.classList.add('button-container');
-  
-      const strongElement = document.createElement('strong');
-      const buttonLink = document.createElement('a');
-      buttonLink.href = link;
-      buttonLink.title = title;
-      buttonLink.classList.add('button', 'primary');
-      buttonLink.textContent = title;
-  
-      strongElement.appendChild(buttonLink);
-      buttonContainer.appendChild(strongElement);
-  
-      const descriptionParagraph = document.createElement('p');
-      descriptionParagraph.textContent = description;
-  
-      bodyDiv.appendChild(buttonContainer);
-      bodyDiv.appendChild(descriptionParagraph);
-  
-      // Assemble the card
-      cardElement.appendChild(imageDiv);
-      cardElement.appendChild(bodyDiv);
-  
-      // Add the card to the container
-      cardsContainer.appendChild(cardElement);
-    });
-  
-    // Append the cards container to the wrapper
-    cardsWrapper.appendChild(cardsContainer);
-  }
-  
-  
-  console.log("000");
-  
-  // Execute the function to fetch data and populate cards when the document is loaded
+import { fetchPlaceholders } from '../../scripts/aem.js';
 
-    console.log("111");
-    fetchAndPopulateCards();
+export async function createMagz(magURL) {
+  try {
+    const response = await fetch(magURL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const jsdata = await response.json();
+    const cardsContainer = populateCards(jsdata);
+    return cardsContainer;
+  } catch (error) {
+    console.error('Error creating magazine cards:', error);
+    throw new Error('Failed to create magazine cards');
+  }
+}
+
+function populateCards(data) {
+  // data
+  const magazines = data?.data || [];
+  console.log("Magazines data:", magazines);
+
+  if (magazines.length === 0) {
+    console.warn('No magazine data available.');
+    const noDataMessage = document.createElement('p');
+    noDataMessage.textContent = 'No magazines available.';
+    return noDataMessage;
+  }
+
+  // container for the cards
+  const cardsContainer = document.createElement('ul');
+  cardsContainer.classList.add('cards');
+
+  magazines.forEach((magazine) => {
+    const { title, description, image, path } = magazine;
+    console.log("data", title, description, image,  path);
+
+    // card elements
+    const cardElement = document.createElement('li');
+
+    // Image Section
+    const imageDiv = document.createElement('div');
+    imageDiv.classList.add('cards-card-image');
+
+    const elePara = document.createElement('p');
   
+
+    const imageLink = document.createElement('a');
+    imageLink.href = path;
+    imageLink.title = title;
+
+    const picture = document.createElement('picture');
+    const source = document.createElement('source');
+    source.type = 'image/webp';
+    source.srcset = `${image}?format=webply&optimize=medium`;
+
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.alt = title;
+    img.src = `${image}?format=jpeg&optimize=medium`;
+
+    picture.appendChild(source);
+    picture.appendChild(img);
+    imageLink.appendChild(picture);
+    imageDiv.appendChild(elePara);
+    elePara.appendChild(imageLink);
+
+    // Body Section
+    const bodyDiv = document.createElement('div');
+    bodyDiv.classList.add('cards-card-body');
+
+    const buttonContainer = document.createElement('p');
+    buttonContainer.classList.add('button-container');
+
+    const strongElement = document.createElement('strong');
+    const buttonLink = document.createElement('a');
+    buttonLink.href = path;
+    buttonLink.title = title;
+    buttonLink.classList.add('button', 'primary');
+    buttonLink.textContent = title;
+
+    strongElement.appendChild(buttonLink);
+    buttonContainer.appendChild(strongElement);
+
+    const descriptionParagraph = document.createElement('p');
+    descriptionParagraph.textContent = description;
+
+    bodyDiv.appendChild(buttonContainer);
+    bodyDiv.appendChild(descriptionParagraph);
+
+    cardElement.appendChild(imageDiv);
+    cardElement.appendChild(bodyDiv);
+
+    // Add the card to the container
+    cardsContainer.appendChild(cardElement);
+  });
+
+  return cardsContainer;
+}
+
+export default async function decorate(block) {
+  const magzinelink = block.querySelector('a[href$=".json"]');
+
+  if (magzinelink) {
+    const magURL = magzinelink.href;
+    try {
+      const cardsContainer = await createMagz(magURL);
+      block.innerHTML = '';
+      block.appendChild(cardsContainer);
+    } catch (error) {
+      block.textContent = 'Failed to load magazines.';
+      console.error('Error decorating magazine-json block:', error);
+    }
+  } else {
+    console.error('No JSON link found for magazines.');
+  }
 }
